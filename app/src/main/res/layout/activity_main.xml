@@ -15,16 +15,4 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/BroadcastButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="119dp"
-        android:layout_marginTop="176dp"
-        android:text="Start Broadcast"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="340dp" />
-
 </RelativeLayout>
