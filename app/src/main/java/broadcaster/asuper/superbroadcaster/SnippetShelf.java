@@ -24,6 +24,11 @@ public class SnippetShelf extends Fragment {
             }
         });
 
+
+
+
+
+
         return view;
     }
 }
