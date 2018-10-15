@@ -12,39 +12,31 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     private Fragment currentFragment;
-    private FragmentTransaction ft;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment currentFragment;
             switch (item.getItemId()) {
                 case R.id.navigation_myloan:
-                    mTextMessage.setText(R.string.myloan);
                     currentFragment = new Myloan();
                     loadFragment(currentFragment);
                     return true;
                 case R.id.navigation_discover:
-                    mTextMessage.setText(R.string.Discover);
                     currentFragment = new BlankMenuFragment();
                     loadFragment(currentFragment);
                     return true;
                 case R.id.navigation_currentbook:
-                    mTextMessage.setText(R.string.Currentbook);
                     currentFragment = new BlankMenuFragment();
                     loadFragment(currentFragment);
                     return true;
                 case R.id.navigation_snippetbookshelf:
-                    mTextMessage.setText(R.string.Snippetbookshelf);
                     currentFragment = new SnippetShelf();
                     loadFragment(currentFragment);
                     return true;
                 case R.id.navigation_more:
-                    mTextMessage.setText(R.string.More);
                     currentFragment = new BlankMenuFragment();
                     loadFragment(currentFragment);
                     return true;
@@ -66,7 +58,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        // load the first fragment
+        currentFragment = new BlankMenuFragment();
+        loadFragment(currentFragment);
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
