@@ -30,9 +30,13 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_discover:
                     mTextMessage.setText(R.string.Discover);
+                    currentFragment = new BlankMenuFragment();
+                    loadFragment(currentFragment);
                     return true;
                 case R.id.navigation_currentbook:
                     mTextMessage.setText(R.string.Currentbook);
+                    currentFragment = new BlankMenuFragment();
+                    loadFragment(currentFragment);
                     return true;
                 case R.id.navigation_snippetbookshelf:
                     mTextMessage.setText(R.string.Snippetbookshelf);
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_more:
                     mTextMessage.setText(R.string.More);
+                    currentFragment = new BlankMenuFragment();
+                    loadFragment(currentFragment);
                     return true;
             }
             return false;
