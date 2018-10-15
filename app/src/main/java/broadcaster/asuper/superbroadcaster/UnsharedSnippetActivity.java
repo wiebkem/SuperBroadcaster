@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-public class UnsharedSnippet extends AppCompatActivity {
+public class UnsharedSnippetActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +22,8 @@ public class UnsharedSnippet extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("UnsharedSnippet", "unshared snippet onclick fired");
-                AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
-                alertDialog.setTitle("Snippet shared");
-                alertDialog.setMessage("The snippet is shared!");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                                //finish();
-                            }
-                        });
-                alertDialog.show();
+                Intent myIntent = new Intent(UnsharedSnippetActivity.this, SnippetSharedActivity.class);
+                UnsharedSnippetActivity.this.startActivity(myIntent);
             }
         });
     }
