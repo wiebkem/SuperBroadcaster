@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_myloan:
                     mTextMessage.setText(R.string.myloan);
+                    currentFragment = new Myloan();
+                    loadFragment(currentFragment);
                     return true;
                 case R.id.navigation_discover:
                     mTextMessage.setText(R.string.Discover);
