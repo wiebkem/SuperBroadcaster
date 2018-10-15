@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -58,12 +59,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // load the first fragment
-        currentFragment = new BlankMenuFragment();
-        loadFragment(currentFragment);
-
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        Bundle intentExtras = getIntent().getExtras();
+        if (intentExtras != null) {
+            int intentFragment = intentExtras.getInt("frgToLoad");
+            Log.d("intentFragment", intentFragment + "");
+            switch (intentFragment) {
+                case R.id.navigation_snippetbookshelf:
+                    navigation.setSelectedItemId(R.id.navigation_snippetbookshelf);
+                    break;
+                default:
+                    navigation.setSelectedItemId(R.id.navigation_discover);
+                    break;
+            }
+        } else {
+            currentFragment = new BlankMenuFragment();
+            loadFragment(currentFragment);
+        }
     }
 
 }
