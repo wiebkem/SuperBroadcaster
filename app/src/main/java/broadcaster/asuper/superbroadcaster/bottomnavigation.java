@@ -17,14 +17,17 @@ public class bottomnavigation extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                case R.id.navigation_myloan:
+                    mTextMessage.setText(R.string.myloan);
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                case R.id.navigation_discover:
+                    mTextMessage.setText(R.string.Discover);
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                case R.id.navigation_currentbook:
+                    mTextMessage.setText(R.string.Currentbook);
+                    return true;
+                case R.id.navigation_more:
+                    mTextMessage.setText(R.string.More);
                     return true;
             }
             return false;

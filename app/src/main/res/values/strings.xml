@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SuperBroadcaster</string>
+    <string name="title_activity_bottomnavigation">bottomnavigation</string>
+    <string name="myloan">Myloan</string>
+    <string name="Discover">Discover</string>
+    <string name="Currentbook">Currentbook</string>
+    <string name="Snippetbookshelf">Snippetbookshelf</string>
+    <string name="More">More</string>
 </resources>
