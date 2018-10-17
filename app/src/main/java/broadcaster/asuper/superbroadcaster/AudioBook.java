@@ -1,12 +1,17 @@
 package broadcaster.asuper.superbroadcaster;
 
-import android.media.Image;
-
 public class AudioBook {
     private String title;
     private String user;
     private String location;
-    private Image imageUrl;
+    private String imageUrl;
+
+    public AudioBook(String title, String user, String location, String imageUrl) {
+        this.title = title;
+        this.user = user;
+        this.location = location;
+        this.imageUrl = imageUrl;
+    }
 
     // Getter- and setter-functions
     public String getTitle() {
@@ -33,9 +38,9 @@ public class AudioBook {
         this.location = location;
     }
 
-    public Image getImageUrl() { return imageUrl; }
+    public String getImageUrl() { return imageUrl; }
 
-    public void setImageUrl(Image imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 }
