@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-public class Myloan extends Fragment {
+public class MyloanFragment extends Fragment {
 
 
     @Override
