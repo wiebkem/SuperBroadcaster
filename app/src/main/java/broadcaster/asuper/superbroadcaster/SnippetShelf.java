@@ -47,8 +47,8 @@ public class SnippetShelf extends Fragment {
         snippets.add(new AudioBook("A Walk in the Wo...", "Mahshid", "Lundby", R.drawable.books_0009));
 
         GridView gridView = view.findViewById(R.id.gridView);
-        ArrayAdapter<AudioBook> bookAdapter = new CustomSnippetAdapter(getActivity(), android.R.layout.simple_list_item_1, snippets.toArray());
-        gridView.setAdapter(bookAdapter);
+        ArrayAdapter<AudioBook> customAdapter = new CustomSnippetAdapter(getActivity(), android.R.layout.simple_list_item_1, snippets.toArray());
+        gridView.setAdapter(customAdapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
