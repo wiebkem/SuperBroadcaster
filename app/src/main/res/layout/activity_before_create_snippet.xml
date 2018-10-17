@@ -41,7 +41,7 @@
         android:textColor="@color/colorBlack" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/songName"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
