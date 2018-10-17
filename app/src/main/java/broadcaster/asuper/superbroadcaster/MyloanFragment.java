@@ -1,6 +1,5 @@
 package broadcaster.asuper.superbroadcaster;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.content.ClipData.Item;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,14 +28,13 @@ public class MyloanFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_myloan2, container, false);
 
         final List<AudioBooklist> myloan = new ArrayList<AudioBooklist>();
-        myloan.add(new AudioBooklist (" A Game of Thrones: Book One", "By: George R.R. Martin", "22 days left", R.drawable.books_0008 ));
+        myloan.add(new AudioBooklist ("A Game of Thrones: Book One", "By: George R.R. Martin", "22 days left", R.drawable.books_0008 ));
         myloan.add(new AudioBooklist("Run for Your Life", "By: William Pullen", "14 day left", R.drawable.my_loans_book_2));
         myloan.add(new AudioBooklist("Astrophysics for People in a Hurry", "By: Neil deGrasse Tyson", "21 day left", R.drawable.my_loans_book_3));
 
         ListView listView = view.findViewById(R.id.mainMain);
         ArrayAdapter<AudioBooklist> bookAdapter = new CustomMyloanAdapter (getActivity(), android.R.layout.simple_list_item_1, myloan.toArray());
         listView.setAdapter(bookAdapter);
-        // Inflate the layout for this fragment
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -47,8 +44,6 @@ public class MyloanFragment extends Fragment {
             }
         });
         return view;
-
-
     }
 
     class CustomMyloanAdapter extends ArrayAdapter {
@@ -64,17 +59,16 @@ public class MyloanFragment extends Fragment {
         public View getView(int position, View view, ViewGroup parent) {
             view = getLayoutInflater().inflate(R.layout.custom_myloan_adapter_layout, null);
 
-            // set the book title
             AudioBooklist currentBook = (AudioBooklist) allloans[position];
+
+            ImageView image = view.findViewById(R.id.imageView);
+            image.setImageResource(currentBook.getImage());
             TextView title = view.findViewById(R.id.titleView);
             title.setText(currentBook.getTitle());
             TextView author = view.findViewById(R.id.authorview);
             author.setText(currentBook.getAuthor());
             TextView time= view.findViewById(R.id.timeview);
             time.setText(currentBook.getTimeTime());
-
-
-
 
             return view;
         }
