@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/unsharedSnippetLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".UnsharedSnippetActivity">
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="327dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="46dp"
+        android:text="You have created a snippet from the book 'A Game of Thrones: book one'."
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorGrey"
+        android:textColor="@color/colorBlack"
+        android:gravity="center"
+        android:text="Ready to share snippet" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="328dp"
+        android:layout_height="82dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/info"
+        android:layout_marginTop="96dp"
+        android:textColor="@color/colorBlack"
+        android:text="To share the snippet, go to the library. Hold your phone against the snippet reader to add it to the snippet bookshelf." />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="205dp"
+        android:layout_height="437dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/share_snippet" />
+</RelativeLayout>
