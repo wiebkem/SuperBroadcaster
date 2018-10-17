@@ -14,7 +14,7 @@ public class AudioBooklist extends AudioBookBase {
     // Getter- and setter-functions
 
     public void setAuthor(String author) { this.author = author; }
-    public void getAuthor(String author) { this.author = author; }
+    public String getAuthor() { return author; }
 
 
 

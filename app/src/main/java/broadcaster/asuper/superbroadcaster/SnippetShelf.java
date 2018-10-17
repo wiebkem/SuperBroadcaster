@@ -11,7 +11,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,17 +34,22 @@ public class SnippetShelf extends Fragment {
             }
         });
 
-        List<AudioBook> snippets = new ArrayList<AudioBook>();
-        snippets.add(new AudioBook("Fear", "Wiebke", "Gothenburg Library", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
-        snippets.add(new AudioBook("Title", "Wiebke", "Gothenburg Library", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
-        snippets.add(new AudioBook("Fear2", "Wiebke", "Gothenburg Library", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
-        snippets.add(new AudioBook("Title2", "Wiebke", "Gothenburg Library", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
+        List<AudioBook> snippets = new ArrayList<>();
+        snippets.add(new AudioBook("A Game of Thrones", "Jan", "Lundby", R.drawable.books_0008));
+        snippets.add(new AudioBook("Abyss", "Aksel", "Haga", R.drawable.books_0007));
+        snippets.add(new AudioBook("The Spear of Stars", "Wiebke", "City", R.drawable.books_0006));
+        snippets.add(new AudioBook("Fear", "Zihua", "Haga", R.drawable.books_0005));
+        snippets.add(new AudioBook("Holy Gost", "Aksel", "Majorna", R.drawable.books_0004));
+        snippets.add(new AudioBook("Harry Potter and the Sorcerer's Stone", "Gunn", "Lundby", R.drawable.books_0003));
+        snippets.add(new AudioBook("The subtle art of not giving a f*ck", "Mahshid", "Haga", R.drawable.books_0002));
+        snippets.add(new AudioBook("12 Rules for Live", "Wiebke", "City", R.drawable.books_0001));
+        snippets.add(new AudioBook("A Walk in the Woods", "Mahshid", "Lundby", R.drawable.books_0009));
 
-        ListView listView = view.findViewById(R.id.listView);
+        GridView gridView = view.findViewById(R.id.gridView);
         ArrayAdapter<AudioBook> bookAdapter = new CustomSnippetAdapter(getActivity(), android.R.layout.simple_list_item_1, snippets.toArray());
-        listView.setAdapter(bookAdapter);
+        gridView.setAdapter(bookAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO
@@ -66,14 +72,16 @@ public class SnippetShelf extends Fragment {
         public View getView(int position, View view, ViewGroup parent) {
             view = getLayoutInflater().inflate(R.layout.custom_snippet_adapter_layout, null);
 
-            // set the book title
             AudioBook currentBook = (AudioBook) allSnippets[position];
+
+            ImageView image = view.findViewById(R.id.imageView);
+            image.setImageResource(currentBook.getImage());
             TextView title = view.findViewById(R.id.titleView);
             title.setText(currentBook.getTitle());
             TextView user = view.findViewById(R.id.userView);
-            user.setText(currentBook.getUser());
+            user.setText("Snippet by " + currentBook.getUser());
             TextView location = view.findViewById(R.id.locationView);
-            location.setText(currentBook.getLocation());
+            location.setText(currentBook.getLocation() + " Library");
 
             return view;
         }
