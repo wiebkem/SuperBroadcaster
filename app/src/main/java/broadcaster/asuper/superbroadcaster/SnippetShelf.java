@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,12 +35,12 @@ public class SnippetShelf extends Fragment {
         });
 
         List<AudioBook> snippets = new ArrayList<>();
-        snippets.add(new AudioBook("A Game of Thrones", "Jan", "Lundby", R.drawable.share_snippet));
-        snippets.add(new AudioBook("Abyss", "Aksel", "Haga", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
-        snippets.add(new AudioBook("The Spear of Stars", "Wiebke", "City", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
-        snippets.add(new AudioBook("Fear", "Zihua", "Haga", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
-        snippets.add(new AudioBook("Holy Gost", "Aksel", "Majorna", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
-        snippets.add(new AudioBook("Harry Potter and the Sorcerer's Stone", "Gunn", "Lundby", "http://t3.gstatic.com/images?q=tbn:ANd9GcRHWAMfKObxh8wCgY3MljQ36bhjNN7bDYlDTmTMRiKav40mtmw6"));
+        snippets.add(new AudioBook("A Game of Thrones", "Jan", "Lundby", R.drawable.books_0001));
+        snippets.add(new AudioBook("Abyss", "Aksel", "Haga", R.drawable.books_0002));
+        snippets.add(new AudioBook("The Spear of Stars", "Wiebke", "City", R.drawable.books_0003));
+        snippets.add(new AudioBook("Fear", "Zihua", "Haga", R.drawable.books_0004));
+        snippets.add(new AudioBook("Holy Gost", "Aksel", "Majorna", R.drawable.books_0005));
+        snippets.add(new AudioBook("Harry Potter and the Sorcerer's Stone", "Gunn", "Lundby", R.drawable.books_0006));
 
         GridView gridView = view.findViewById(R.id.gridView);
         ArrayAdapter<AudioBook> bookAdapter = new CustomSnippetAdapter(getActivity(), android.R.layout.simple_list_item_1, snippets.toArray());
@@ -68,8 +69,10 @@ public class SnippetShelf extends Fragment {
         public View getView(int position, View view, ViewGroup parent) {
             view = getLayoutInflater().inflate(R.layout.custom_snippet_adapter_layout, null);
 
-            // set the book title
             AudioBook currentBook = (AudioBook) allSnippets[position];
+
+            ImageView image = view.findViewById(R.id.imageView);
+            image.setImageResource(currentBook.getImage());
             TextView title = view.findViewById(R.id.titleView);
             title.setText(currentBook.getTitle());
             TextView user = view.findViewById(R.id.userView);
