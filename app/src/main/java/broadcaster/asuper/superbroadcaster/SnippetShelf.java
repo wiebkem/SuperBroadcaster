@@ -35,12 +35,15 @@ public class SnippetShelf extends Fragment {
         });
 
         List<AudioBook> snippets = new ArrayList<>();
-        snippets.add(new AudioBook("A Game of Thrones", "Jan", "Lundby", R.drawable.books_0001));
-        snippets.add(new AudioBook("Abyss", "Aksel", "Haga", R.drawable.books_0002));
-        snippets.add(new AudioBook("The Spear of Stars", "Wiebke", "City", R.drawable.books_0003));
-        snippets.add(new AudioBook("Fear", "Zihua", "Haga", R.drawable.books_0004));
-        snippets.add(new AudioBook("Holy Gost", "Aksel", "Majorna", R.drawable.books_0005));
-        snippets.add(new AudioBook("Harry Potter and the Sorcerer's Stone", "Gunn", "Lundby", R.drawable.books_0006));
+        snippets.add(new AudioBook("A Game of Thrones", "Jan", "Lundby", R.drawable.books_0008));
+        snippets.add(new AudioBook("Abyss", "Aksel", "Haga", R.drawable.books_0007));
+        snippets.add(new AudioBook("The Spear of Stars", "Wiebke", "City", R.drawable.books_0006));
+        snippets.add(new AudioBook("Fear", "Zihua", "Haga", R.drawable.books_0005));
+        snippets.add(new AudioBook("Holy Gost", "Aksel", "Majorna", R.drawable.books_0004));
+        snippets.add(new AudioBook("Harry Potter and the Sorcerer's Stone", "Gunn", "Lundby", R.drawable.books_0003));
+        snippets.add(new AudioBook("The subtle art of not giving a f*ck", "Mahshid", "Haga", R.drawable.books_0002));
+        snippets.add(new AudioBook("12 Rules for Live", "Wiebke", "City", R.drawable.books_0001));
+        snippets.add(new AudioBook("A Walk in the Woods", "Mahshid", "Lundby", R.drawable.books_0009));
 
         GridView gridView = view.findViewById(R.id.gridView);
         ArrayAdapter<AudioBook> bookAdapter = new CustomSnippetAdapter(getActivity(), android.R.layout.simple_list_item_1, snippets.toArray());
