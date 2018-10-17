@@ -54,6 +54,10 @@ public class SnippetShelf extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO
+
+                // temporary
+                Intent intent = new Intent(getActivity(), BeforeCreateSnippetActivity.class);
+                startActivity(intent);
             }
         });
 
