@@ -3,13 +3,13 @@ package broadcaster.asuper.superbroadcaster;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -29,17 +29,7 @@ public class MyloanFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_myloan2, container, false);
 
-        Button shareButton = view.findViewById(R.id.shareButton);
-        shareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(getActivity(), UnsharedSnippetActivity.class);
-                getActivity().startActivity(myIntent);
-            }
-        });
-
-
-        List<AudioBooklist> myloan = new ArrayList<AudioBooklist>();
+        final List<AudioBooklist> myloan = new ArrayList<AudioBooklist>();
         myloan.add(new AudioBooklist (" A Game of Thrones: Book One", "By: George R.R. Martin", "22 days left", R.drawable.books_0008 ));
         myloan.add(new AudioBooklist("Run for Your Life", "By: William Pullen", "14 day left", R.drawable.my_loans_book_2));
         myloan.add(new AudioBooklist("Astrophysics for People in a Hurry", "By: Neil deGrasse Tyson", "21 day left", R.drawable.my_loans_book_3));
@@ -49,7 +39,13 @@ public class MyloanFragment extends Fragment {
         listView.setAdapter(bookAdapter);
         // Inflate the layout for this fragment
 
-        //listView.setAdapter(listViewAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), MediaPlayerActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
 
 
@@ -77,9 +73,11 @@ public class MyloanFragment extends Fragment {
             TextView time= view.findViewById(R.id.timeview);
             time.setText(currentBook.getTimeTime());
 
+
+
+
             return view;
         }
     }
-
 
 }

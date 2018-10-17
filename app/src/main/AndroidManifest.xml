@@ -19,7 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".UnsharedSnippetActivity" />
-        <activity android:name=".SnippetSharedActivity"></activity>
+        <activity android:name=".SnippetSharedActivity" />
+        <activity android:name=".MediaPlayerActivity">
+
+        </activity>
     </application>
 
 </manifest>
