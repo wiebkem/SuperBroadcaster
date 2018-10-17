@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BeforeCreateSnippetActivity">
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorBlue"
+        android:textSize="20dp"
+        android:text="Create Snippet" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="206dp"
+        android:layout_height="385dp"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/create_snippet" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorGrey"
+        android:gravity="center"
+        android:text="Before you go..."
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="87dp"
+        android:text="Wanna share a cool part of this audiobook to the snippet bookshelf?"
+        android:textColor="@color/colorBlack" />
+
+</RelativeLayout>

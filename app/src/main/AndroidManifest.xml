@@ -20,9 +20,10 @@
         </activity>
         <activity android:name=".UnsharedSnippetActivity" />
         <activity android:name=".SnippetSharedActivity" />
-        <activity android:name=".MediaPlayerActivity">
-
-        </activity>
+        <activity android:name=".MediaPlayerActivity" />
+        <activity android:name=".CreateSnippetActivity" />
+        <activity android:name=".SaveSnippetActivity" />
+        <activity android:name=".BeforeCreateSnippetActivity" />
     </application>
 
 </manifest>

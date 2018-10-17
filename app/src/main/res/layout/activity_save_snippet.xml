@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".SaveSnippetActivity">
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorBlue"
+        android:textSize="20dp"
+        android:text="OK" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="206dp"
+        android:layout_height="385dp"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/save_snippet" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorGrey"
+        android:gravity="center"
+        android:text="Create snippet 2/2"
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="87dp"
+        android:text="Snippet saved. To share the snippet, go to the library and hold your phone up against the snippet reader. Your snippet will be saved on your phone until you share it at a library."
+        android:textColor="@color/colorBlack" />
+
+</RelativeLayout>
