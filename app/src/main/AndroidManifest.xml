@@ -21,7 +21,7 @@
         <activity android:name=".UnsharedSnippetActivity" />
         <activity android:name=".SnippetSharedActivity" />
         <activity android:name=".MediaPlayerActivity"
-            android:screenOrientation="portrait"/>
+                  android:screenOrientation="portrait"/>
         <activity android:name=".CreateSnippetActivity" />
         <activity android:name=".SaveSnippetActivity" />
         <activity android:name=".BeforeCreateSnippetActivity" />
