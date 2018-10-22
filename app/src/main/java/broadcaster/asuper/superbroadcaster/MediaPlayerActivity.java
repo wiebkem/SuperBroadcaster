@@ -5,17 +5,19 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 public class MediaPlayerActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
     private double timeElapsed = 0, finalTime = 0;
-    private int forwardTime = 30000, backwardTime= 30000;
     private Handler durationHandler= new Handler();
     private SeekBar seekbar;
+
+    // jumping 30 seconds
+    private int forwardTime = 30000, backwardTime= 30000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +28,29 @@ public class MediaPlayerActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this, R.raw.peterpanch1);
         // set the seekbar details
         finalTime = mediaPlayer.getDuration();
+        Log.d("mediaPlayer", "final time for the media player: " + finalTime);
         seekbar = findViewById(R.id.seekBar);
         seekbar.setMax((int) finalTime);
-        seekbar.setClickable(false);
+        seekbar.setClickable(true);
 
-        RelativeLayout unsharedSnippetLayout = findViewById(R.id.mediaPlayerLayout);
-        unsharedSnippetLayout.setOnClickListener(new View.OnClickListener() {
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                mediaPlayer.seekTo(seekBar.getProgress());
+            }
+        });
+
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
                 Intent myIntent = new Intent(MediaPlayerActivity.this, BeforeCreateSnippetActivity.class);
                 startActivity(myIntent);
             }
@@ -71,6 +88,7 @@ public class MediaPlayerActivity extends AppCompatActivity {
     }
 
     private void playAudioBook() {
+        Log.d("mediaPlayer", "play audio book");
         mediaPlayer.start();
 
         timeElapsed = mediaPlayer.getCurrentPosition();
@@ -80,6 +98,7 @@ public class MediaPlayerActivity extends AppCompatActivity {
     }
 
     private void pauseAudioBook(){
+        Log.d("mediaPlayer", "pause audio book");
         mediaPlayer.pause();
     }
 
@@ -88,20 +107,31 @@ public class MediaPlayerActivity extends AppCompatActivity {
         public void run() {
         timeElapsed = mediaPlayer.getCurrentPosition();
         seekbar.setProgress((int) timeElapsed);
-
-        double timeRemaining = finalTime - timeElapsed;
         durationHandler.postDelayed(this,100);
         }
     };
 
     private void forwardMediaPlayer() {
-       if((timeElapsed + forwardTime) <= finalTime){
-           timeElapsed= timeElapsed - backwardTime;
-           mediaPlayer.seekTo((int) timeElapsed);
-       }
+        Log.d("mediaPlayer", "forward media player");
+        int duration = mediaPlayer.getDuration();
+        Log.d("mediaPlayer", "duration: " + duration);
+        Log.d("mediaPlayer", "duration + forward time: " + duration + forwardTime);
+        Log.d("mediaPlayer", "final time: " + finalTime);
+        if((duration + forwardTime) <= finalTime) {
+            timeElapsed = timeElapsed + forwardTime;
+            Log.d("mediaPlayer", "forward time elapsed: " + timeElapsed);
+            mediaPlayer.seekTo((int) timeElapsed);
+            seekbar.setProgress((int) timeElapsed);
+        }
     }
 
     private void backwardMediaPlayer() {
-        // TODO
+        int duration = mediaPlayer.getDuration();
+        if((duration - backwardTime) > 0) {
+            timeElapsed = timeElapsed - backwardTime;
+            Log.d("mediaPlayer", "backward time elapsed: " + timeElapsed);
+            mediaPlayer.seekTo((int) timeElapsed);
+            seekbar.setProgress((int) timeElapsed);
+        }
     }
 }
