@@ -112,12 +112,8 @@ public class MediaPlayerActivity extends AppCompatActivity {
     };
 
     private void forwardMediaPlayer() {
-        Log.d("mediaPlayer", "forward media player");
-        int duration = mediaPlayer.getDuration();
-        Log.d("mediaPlayer", "duration: " + duration);
-        Log.d("mediaPlayer", "duration + forward time: " + duration + forwardTime);
-        Log.d("mediaPlayer", "final time: " + finalTime);
-        if((duration + forwardTime) <= finalTime) {
+        int currentPosition = mediaPlayer.getCurrentPosition();
+        if((currentPosition + forwardTime) <= finalTime) {
             timeElapsed = timeElapsed + forwardTime;
             Log.d("mediaPlayer", "forward time elapsed: " + timeElapsed);
             mediaPlayer.seekTo((int) timeElapsed);
@@ -126,8 +122,8 @@ public class MediaPlayerActivity extends AppCompatActivity {
     }
 
     private void backwardMediaPlayer() {
-        int duration = mediaPlayer.getDuration();
-        if((duration - backwardTime) > 0) {
+        int currentPosition = mediaPlayer.getCurrentPosition();
+        if((currentPosition - backwardTime) > 0) {
             timeElapsed = timeElapsed - backwardTime;
             Log.d("mediaPlayer", "backward time elapsed: " + timeElapsed);
             mediaPlayer.seekTo((int) timeElapsed);
