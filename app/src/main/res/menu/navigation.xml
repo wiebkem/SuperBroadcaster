@@ -3,27 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_discover"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/Discover" />
-
-    <item
         android:id="@+id/navigation_myloan"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/myloan" />
+        android:textSize="10dp"
+        android:title="My Loans" />
+
+    <item
+        android:id="@+id/navigation_discover"
+        android:icon="@android:drawable/ic_menu_search"
+        android:textSize="10dp"
+        android:title="Discover" />
 
     <item
         android:id="@+id/navigation_currentbook"
         android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/Currentbook" />
+        android:textSize="10dp"
+        android:title="Book" />
 
     <item
         android:id="@+id/navigation_snippetbookshelf"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="Snippetbookshelf" />
+        android:icon="@android:drawable/ic_notification_clear_all"
+        android:textSize="10dp"
+        android:title="Snippet Bookshelf" />
 
     <item
         android:id="@+id/navigation_more"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/More" />
+        android:icon="@android:drawable/ic_menu_more"
+        android:textSize="10dp"
+        android:title="More" />
 </menu>
