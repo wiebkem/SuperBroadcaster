@@ -53,11 +53,7 @@ public class SnippetShelf extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO
-
-                // temporary
-                Intent intent = new Intent(getActivity(), BeforeCreateSnippetActivity.class);
-                startActivity(intent);
+            // TODO
             }
         });
 
