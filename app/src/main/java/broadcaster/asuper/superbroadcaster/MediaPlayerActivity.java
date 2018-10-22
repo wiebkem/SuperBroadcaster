@@ -57,6 +57,7 @@ public class MediaPlayerActivity extends AppCompatActivity {
         });
 
         final ImageButton playPauseButton = findViewById(R.id.playPauseButton);
+        playPauseButton.setImageResource(R.drawable.playing);
         playPauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
