@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         } else {
-            currentFragment = new BlankMenuFragment();
+            currentFragment = new MyloanFragment();
             loadFragment(currentFragment);
         }
     }
