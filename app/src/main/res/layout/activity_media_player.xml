@@ -58,23 +58,11 @@
         android:textSize="11dp" />
 
     <ImageButton
-        android:id="@+id/playPauseButton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
-        android:background="@null"
-        android:scaleType="centerInside"
-        android:src="@android:drawable/ic_media_pause"
-        app:srcCompat="@drawable/pause" />
-
-    <ImageButton
         android:id="@+id/forwardButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignEnd="@+id/bookView"
-        android:layout_alignTop="@+id/playPauseButton"
+        android:layout_alignTop="@+id/backwardButton"
         android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,10 +73,21 @@
         android:id="@+id/backwardButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/bookView"
-        android:layout_alignTop="@+id/playPauseButton"
+        android:layout_marginBottom="54dp"
         android:background="@null"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/back" />
+
+    <ImageButton
+        android:id="@+id/playPauseButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/forwardButton"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/pause" />
 
 </RelativeLayout>
