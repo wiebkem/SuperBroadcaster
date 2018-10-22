@@ -36,7 +36,6 @@ public class SnippetShelf extends Fragment {
 
         // create 9 audio books
         List<AudioBook> snippets = new ArrayList<>();
-        snippets.add(new AudioBook("A Game of Thro...", "Jan", "Lundby", R.drawable.books_0008));
         snippets.add(new AudioBook("Abyss", "Aksel", "Haga", R.drawable.books_0007));
         snippets.add(new AudioBook("The Spear of Stars", "Wiebke", "City", R.drawable.books_0006));
         snippets.add(new AudioBook("Fear", "Zihua", "Haga", R.drawable.books_0005));
@@ -46,16 +45,15 @@ public class SnippetShelf extends Fragment {
         snippets.add(new AudioBook("12 Rules for Live", "Wiebke", "City", R.drawable.books_0001));
         snippets.add(new AudioBook("A Walk in the Wo...", "Mahshid", "Lundby", R.drawable.books_0009));
 
+
+        boolean snippetIsAdded = ((MainActivity) getActivity()).snippetIsAdded();
+        if (snippetIsAdded) {
+            snippets.add(0, new AudioBook("A Game of Thro...", "Jan", "Lundby", R.drawable.books_0008));
+        }
+
         GridView gridView = view.findViewById(R.id.gridView);
         ArrayAdapter<AudioBook> customAdapter = new CustomSnippetAdapter(getActivity(), android.R.layout.simple_list_item_1, snippets.toArray());
         gridView.setAdapter(customAdapter);
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            // TODO
-            }
-        });
 
         return view;
     }

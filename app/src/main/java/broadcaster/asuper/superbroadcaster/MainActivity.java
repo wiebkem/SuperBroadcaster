@@ -11,6 +11,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean snippetIsAdded;
+
     private Fragment currentFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        snippetIsAdded = false;
+
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("intentFragment", intentFragment + "");
             switch (intentFragment) {
                 case R.id.navigation_snippetbookshelf:
+                    snippetIsAdded = true;
                     navigation.setSelectedItemId(R.id.navigation_snippetbookshelf);
                     break;
                 default:
@@ -78,4 +83,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public boolean snippetIsAdded() {
+        return snippetIsAdded;
+    }
 }
