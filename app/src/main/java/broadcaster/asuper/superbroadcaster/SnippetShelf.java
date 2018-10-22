@@ -49,6 +49,7 @@ public class SnippetShelf extends Fragment {
         boolean snippetIsAdded = ((MainActivity) getActivity()).snippetIsAdded();
         if (snippetIsAdded) {
             snippets.add(0, new AudioBook("A Game of Thro...", "Jan", "Lundby", R.drawable.books_0008));
+            shareButton.setVisibility(View.GONE);
         }
 
         GridView gridView = view.findViewById(R.id.gridView);
