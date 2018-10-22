@@ -44,7 +44,7 @@ public class MediaPlayerActivity extends AppCompatActivity {
         finalTime = mediaPlayer.getDuration();
         songDetail1= findViewById(R.id. songDetail1);
         songDetail2= findViewById(R.id. songDetail2);
-        seekbar= findViewById(R.id.seekBar);
+        seekbar= findViewById(R.id.seekBar3);
         songName.setText("A Game of Thrones");
         songDetail1.setText("Book1 of A Song of Ice and Fire");
         songDetail2.setText("Chapter 3");
